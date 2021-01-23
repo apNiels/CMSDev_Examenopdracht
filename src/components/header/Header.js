@@ -1,42 +1,47 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+import PropTypes from "prop-types"
+import Menu from "./Menu"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+const Header = ({ siteTitle }) => {
+    const {
+        logo,
+        wpcontent: { menuItems },
+    } = useStaticQuery(graphql`
+    query {
+        logo: file(relativePath: { eq: "logo.png" }) {
+            childImageSharp {
+                fixed(quality: 100, width: 200) {
+                    ...GatsbyImageSharpFixed_withWebp
+                }
+            }
+        }
+        wpcontent {
+            menuItems {
+                edges {
+                    node {
+                        label
+                        path
+                    }
+                }
+            }
+        }
+    }`);
+
+    return (
+        <header
+            style={{
+                background: `rebeccapurple`,
+                marginBottom: `1.45rem`,
+            }}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+            <Link to="/">
+                <Img alt={`logo ${siteTitle}`} fixed={logo.childImageSharp.fixed} />
+            </Link>
+            <Menu menuItems={menuItems.edges} />
+        </header>
+    );
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
