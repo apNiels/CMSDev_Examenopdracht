@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import FilmPoster from "../components/FilmPoster"
 
 const FilmsPage = () => {
     const {
@@ -78,10 +79,7 @@ const FilmsPage = () => {
                 <h2>Films</h2>
                 <div className="film-items">
                     {films.map(({ node: { film, slug } }) => (
-                        <div className = "film-info">
-                            <p>{`${film.title} (${film.yearOfRelease})`}</p>
-                            <p>{film.ratingImdb}</p>
-                        </div>
+                        <FilmPoster film={film} slug={slug} />
                     ))}
                 </div>
             </div>
