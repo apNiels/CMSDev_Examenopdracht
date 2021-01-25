@@ -12,10 +12,8 @@ const FilmPoster = ({ film, slug }) => (
             alt={film.poster.altText}
         />
         <div className = "film-info">
-            <div className = "film-info">
-                <p>{`${film.title} (${film.yearOfRelease})`}</p>
-                <p>{film.ratingImdb}</p>
-            </div>
+            <p>{`${film.title} (${film.yearOfRelease})`}</p>
+            <p>{`${film.ratingImdb}/10`}</p>
         </div>
     </Film>
 );

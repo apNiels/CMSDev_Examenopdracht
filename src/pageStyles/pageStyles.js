@@ -181,7 +181,7 @@ export const Film = styled(Link)`
       margin: 0;
     }
     p:nth-child(2) {
-      color: ${COLORS.SECONDARY};
+      color: yellow;
       margin-top: 0.3rem;
     }
   }
