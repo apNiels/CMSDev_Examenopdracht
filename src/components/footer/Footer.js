@@ -1,5 +1,5 @@
 import React from "react"
-import { FooterWrapper, Image } from "./footerStyles/footerStyles"
+import { FooterWrapper } from "./footerStyles/footerStyles"
 
 const Footer = () => {
     return (
