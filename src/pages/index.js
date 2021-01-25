@@ -1,10 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FilmPoster from "../components/FilmPoster"
+
+import {
+  Wrapper,
+  Image,
+  BottomEdgeDown,
+} from "../pageStyles/pageStyles"
+import { COLORS } from "../constants"
 
 const IndexPage = () => {
   const {
@@ -65,15 +71,17 @@ const IndexPage = () => {
   return (
   <Layout>
     <SEO title="Home" />
+    <Wrapper>
       <div className="banner">
-        <Img
+        <Image
             fluid={homePageHeaderPicture.imageFile.childImageSharp.fluid}
             alt={homePageHeaderPicture.altText}
           />
           <div className="inner-div">
             <p className="header-title">{homePageHeaderTitle}</p>
             <p className="header-description">{homePageHeaderDescription}</p>
-          </div>          
+          </div>
+          <BottomEdgeDown color={COLORS.BLACK} />          
       </div>
       <div className="films">
           <h2>Featured Films</h2>
@@ -83,6 +91,7 @@ const IndexPage = () => {
             ))}
           </div>
         </div>
+    </Wrapper>
   </Layout>
   );
 }

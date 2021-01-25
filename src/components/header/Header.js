@@ -1,8 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Menu from "./Menu"
+import { HeaderWrapper, Image } from "./headerStyles/headerStyles"
 
 const Header = ({ siteTitle }) => {
     const {
@@ -30,18 +30,21 @@ const Header = ({ siteTitle }) => {
     }`);
 
     return (
-        <header
-            style={{
-                background: `rebeccapurple`,
-                marginBottom: `1.45rem`,
-            }}
-        >
+        <HeaderWrapper>
             <Link to="/">
-                <Img alt={`logo ${siteTitle}`} fixed={logo.childImageSharp.fixed} />
+                <Image alt={`logo ${siteTitle}`} fixed={logo.childImageSharp.fixed} />
             </Link>
             <Menu menuItems={menuItems.edges} />
-        </header>
+        </HeaderWrapper>
     );
 }
 
-export default Header;
+Header.propTypes = {
+    siteTitle: PropTypes.string,
+  }
+  
+  Header.defaultProps = {
+    siteTitle: ``,
+  }
+  
+  export default Header

@@ -1,15 +1,13 @@
-import {Link} from "gatsby"
-import Img from "gatsby-image"
-import PropTypes from "prop-types"
 import React from "react"
 
+import {
+    Image,
+    Film,
+  } from "../pageStyles/pageStyles"
+
 const FilmPoster = ({ film, slug }) => (
-    <Link key={slug} to={`/${slug}`}>
-        <Img
-            style={{
-                width: "20%",
-                height: "20%"
-            }}
+    <Film key={slug} to={`/${slug}`}>
+        <Image
             fluid={film.poster.imageFile.childImageSharp.fluid}
             alt={film.poster.altText}
         />
@@ -19,7 +17,7 @@ const FilmPoster = ({ film, slug }) => (
                 <p>{film.ratingImdb}</p>
             </div>
         </div>
-    </Link>
+    </Film>
 );
 
 export default FilmPoster

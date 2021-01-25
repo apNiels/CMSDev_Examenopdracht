@@ -4,6 +4,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FilmPoster from "../components/FilmPoster"
+import {
+    Wrapper,
+    Image,
+    BottomEdgeDown,
+    BottomEdgeUp,
+  } from "../pageStyles/pageStyles"
+  import { COLORS } from "../constants"
 
 const FilmsPage = () => {
     const {
@@ -65,15 +72,17 @@ const FilmsPage = () => {
     return (
         <Layout>
             <SEO title="Films" />
+            <Wrapper filmsColor={COLORS.BLACK} descriptionColor={COLORS.SECONDARY}>
             <div className="banner">
-                {/*<Image
+                <Image
                     fluid={filmsPageHeaderPicture.imageFile.childImageSharp.fluid}
                     alt={filmsPageHeaderPicture.altText}
-                />*/}
-                <p>{filmsPageHeaderPicture.altText}</p>
+                />
+                <BottomEdgeDown color={COLORS.SECONDARY} />
             </div> 
             <div className="description">
                 <p>{filmsPageDescription}</p>
+                <BottomEdgeUp color={COLORS.BLACK} />
             </div>
             <div className="films">
                 <h2>Films</h2>
@@ -83,6 +92,7 @@ const FilmsPage = () => {
                     ))}
                 </div>
             </div>
+            </Wrapper>
         </Layout>
     );
 }

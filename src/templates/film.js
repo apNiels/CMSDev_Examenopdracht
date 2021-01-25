@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+import { Wrapper, Image } from "./templateStyles/filmStyles"
 
 const FilmTemplate = ({
     data: {
@@ -18,9 +19,10 @@ const FilmTemplate = ({
     return (
         <Layout>
             <SEO title="Film" />
+            <Wrapper>
                 <div className="film-container">
                     <div className="film-image">
-                        <Img
+                        <Image
                             fluid={film.poster.imageFile.childImageSharp.fluid}
                             alt={film.poster.altText}
                         />
@@ -45,6 +47,7 @@ const FilmTemplate = ({
                         </p>
                     </div>
                 </div>
+                </Wrapper>
         </Layout>
     )
 }
