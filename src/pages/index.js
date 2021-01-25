@@ -36,7 +36,7 @@ const IndexPage = () => {
               sourceUrl
               imageFile {
                 childImageSharp {
-                  fluid(quality: 100) {
+                  fluid(quality: 90) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
