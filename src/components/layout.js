@@ -13,6 +13,7 @@ import Header from "./header/Header"
 import Hamburger from "./header/Hamburger"
 import OverlayMenu from "./header/OverlayMenu"
 import "./layout.css"
+import Footer from "./footer/Footer"
 
 const Layout = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,15 +43,9 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        {<footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          <p>
-            &copy; {new Date().getFullYear()}, by Niels Van de Poel
-          </p>          
-        </footer>}
+
+        
+        {true && <Footer />}
       </div>
     </>
   )

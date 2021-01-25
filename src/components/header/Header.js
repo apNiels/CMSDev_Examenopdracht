@@ -31,9 +31,11 @@ const Header = ({ siteTitle }) => {
 
     return (
         <HeaderWrapper>
-            <Link to="/">
-                <Image alt={`logo ${siteTitle}`} fixed={logo.childImageSharp.fixed} />
-            </Link>
+            <div className="header-logo">
+                <Link to="/">
+                    <Image alt={`logo ${siteTitle}`} fixed={logo.childImageSharp.fixed} />
+                </Link>
+            </div>            
             <Menu menuItems={menuItems.edges} />
         </HeaderWrapper>
     );

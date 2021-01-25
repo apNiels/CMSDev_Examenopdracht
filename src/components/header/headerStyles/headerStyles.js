@@ -16,21 +16,13 @@ export const HeaderWrapper = styled.header`
   margin-bottom: 1.45rem;
   z-index: 999;
 
-  a {
-    display: flex;
-    width: 200px;
-    height: 80%;
-    font-size: 1.5rem;
-    text-align: center;
-    justify-content: center;
-  }
-
   @media (max-width: ${MEDIA_QUERIES.MEDIUM}) {
     display: none;
   }
 `
 export const Image = styled(Img)`
-  margin: auto 0;
+  height:100%;
+  width:100%
 `
 export const MenuList = styled.ul`
   display: flex;
@@ -38,6 +30,10 @@ export const MenuList = styled.ul`
   list-style: none;
 
   li {
+    
+    width: 200px;
+    height: 80%;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;

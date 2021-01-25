@@ -9,6 +9,7 @@ import {
   Wrapper,
   Image,
   BottomEdgeDown,
+  BottomEdgeUp
 } from "../pageStyles/pageStyles"
 import { COLORS } from "../constants"
 
@@ -81,7 +82,7 @@ const IndexPage = () => {
             <p className="header-title">{homePageHeaderTitle}</p>
             <p className="header-description">{homePageHeaderDescription}</p>
           </div>
-          <BottomEdgeDown color={COLORS.BLACK} />          
+          <BottomEdgeDown color={COLORS.BLACK} />
       </div>
       <div className="films">
           <h2>Featured Films</h2>
